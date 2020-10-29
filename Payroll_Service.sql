@@ -29,3 +29,6 @@ DESCRIBE employee_payroll;
     ('BILL',1000000.00,'2018-01-03'),
     ('Terisa',2000000.00,'2019-11-13'),
     ('Charlie',3000000.00,'2020-05-21');
+
+#Getting data from table
+ SELECT * FROM employee_payroll;

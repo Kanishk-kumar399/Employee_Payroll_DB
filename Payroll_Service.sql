@@ -39,3 +39,10 @@ SELECT salary FROM employee_payroll WHERE name='Bill';
 #getting to select all fields of employees ina given date range
 SELECT * FROM employee_payroll
      WHERE start BETWEEN CAST('2018-01-01' AS DATE) AND DATE(NOW());
+
+#ability to alter the table and update it
+ ALTER TABLE employee_payroll ADD gender CHAR(1) AFTER name;
+
+update employee_payroll set gender='F' where name='Terisa';
+
+update employee_payroll set gender='M' where name='Bill' or name='Charlie';

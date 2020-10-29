@@ -45,3 +45,12 @@ SELECT * FROM employee_payroll
 update employee_payroll set gender='F' where name='Terisa';
 
 update employee_payroll set gender='M' where name='Bill' or name='Charlie';
+
+ update employee_payroll set salary=3000000.00 where name='Terisa';
+
+#Ability to Find MAX,SUM,MIN,COUNT,AVERAGE of salary
+SELECT AVG(salary) FROM employee_payroll WHERE gender='M' GROUP BY gender;
+SELECT gender, AVG(salary) FROM employee_payroll GROUP BY gender;
+SELECT gender, COUNT(name) FROM employee_payroll GROUP BY gender;
+SELECT gender, SUM(salary) FROM employee_payroll GROUP BY gender;
+ SELECT gender, MIN(salary) FROM employee_payroll GROUP BY gender;

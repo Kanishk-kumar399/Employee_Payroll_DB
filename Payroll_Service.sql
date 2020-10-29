@@ -32,3 +32,10 @@ DESCRIBE employee_payroll;
 
 #Getting data from table
  SELECT * FROM employee_payroll;
+
+#Getting salary for an employee
+SELECT salary FROM employee_payroll WHERE name='Bill';
+
+#getting to select all fields of employees ina given date range
+SELECT * FROM employee_payroll
+     WHERE start BETWEEN CAST('2018-01-01' AS DATE) AND DATE(NOW());

@@ -67,3 +67,9 @@ AlTER TABLE employee_payroll ADD deductions Double NOT NULL AFTER basic_pay;
 AlTER TABLE employee_payroll ADD taxable_pay Double NOT NULL AFTER deductions;
 AlTER TABLE employee_payroll ADD tax Double NOT NULL AFTER taxable_pay;
 AlTER TABLE employee_payroll ADD net_pay Double NOT NULL AFTER tax;
+
+#UC10
+ update employee_payroll set department='Sales' where name='Terisa';
+INSERT INTO employee_payroll
+  (name,department,gender,basic_pay,deductions,taxable_pay,tax,net_pay,start) VALUES
+  ('Terisa','Marketing','F',3000000.0,100000.0,200000.0,50000.0,1500000.0,'2020-01-03');

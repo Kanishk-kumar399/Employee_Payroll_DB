@@ -130,3 +130,19 @@ INSERT INTO payroll (emp_id,basic_pay,deductions,taxable_pay,tax,net_pay) values
    (12,850000.0,200000.0,800000.0,60000.0,740000.0),
    (13,900000.0,200000.0,700000,70000.0,630000.0),
    (14,1200000.0,300000.0,900000.0,100000.0,800000.0);
+
+ALTER TABLE employee ADD company_id int after gender;
+
+
+select gender, avg(net_pay) from 
+(employee inner join payroll on employee.emp_id=payroll.emp_id)
+group by gender;
+
+#UC12
+select gender, MAX(net_pay) from
+(employee inner join payroll on employee.emp_id=payroll.emp_id)
+group by gender;
+
+select * from (employee inner join payroll on employee.emp_id=payroll.emp_id);
+select * from employee;
+select * from payroll;

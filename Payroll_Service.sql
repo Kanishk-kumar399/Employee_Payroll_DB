@@ -73,3 +73,60 @@ AlTER TABLE employee_payroll ADD net_pay Double NOT NULL AFTER tax;
 INSERT INTO employee_payroll
   (name,department,gender,basic_pay,deductions,taxable_pay,tax,net_pay,start) VALUES
   ('Terisa','Marketing','F',3000000.0,100000.0,200000.0,50000.0,1500000.0,'2020-01-03');
+
+#UC11
+CREATE TABLE company
+(company_id int unsigned NOT NULL,
+company_name varchar(150) NOT NULL,
+PRIMARY KEY(company_id));
+
+INSERT INTO company(company_id,company_name) VALUES
+(1,'Deloitte'),
+(2,'Capg');
+
+CREATE TABLE employee
+(
+   emp_id INT unsigned NOT NULL,
+   name VARCHAR(150) NOT NULL,
+   address VARCHAR(200),
+   phone_number VARCHAR(20),
+   gender CHAR(1),
+   start DATE NOT NULL,
+   PRIMARY KEY (emp_id)
+);
+
+INSERT INTO employee (emp_id,name,gender,start) VALUES
+   (11,'Bill','M','2018-01-03'),
+   (12,'Kanishk','M','2018-11-13'),
+   (13,'Charlie','M','2020-05-21'),
+   (14,'Terisa','F','2018-11-13');
+
+CREATE TABLE department
+   (
+    emp_id INT unsigned NOT NULL,
+    department_name VARCHAR(100) NOT NULL,
+    FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+);
+
+INSERT INTO department(emp_id,department_name) VALUES
+(11,'Marketing'),
+(12,'Consultancy'),
+(13,'Sales'),
+(14,'Finance');
+
+CREATE TABLE payroll(
+emp_id int unsigned NOT NULL,
+   basic_pay double NOT NULL,
+   deductions double NOT NULL,
+   taxable_pay double NOT NULL,
+   tax double NOT NULL,
+   net_pay double NOT NULL,
+   PRIMARY KEY (emp_id),
+   FOREIGN KEY (emp_id) REFERENCES employee(emp_id)
+);
+
+INSERT INTO payroll (emp_id,basic_pay,deductions,taxable_pay,tax,net_pay) values
+   (11,800000.0,200000.0,700000.0,70000.0,630000.0),
+   (12,850000.0,200000.0,800000.0,60000.0,740000.0),
+   (13,900000.0,200000.0,700000,70000.0,630000.0),
+   (14,1200000.0,300000.0,900000.0,100000.0,800000.0);

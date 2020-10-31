@@ -61,4 +61,9 @@ ALTER TABLE employee_payroll ADD address VARCHAR(200) AFTER phone_number;
 ALTER TABLE employee_payroll ADD department VARCHAR(150) NOT NULL AFTER address;
  ALTER TABLE employee_payroll ALTER address SET DEFAULT 'TBD';
 
-
+#UC9
+AlTER TABLE employee_payroll RENAME COLUMN salary TO basic_pay;
+AlTER TABLE employee_payroll ADD deductions Double NOT NULL AFTER basic_pay;
+AlTER TABLE employee_payroll ADD taxable_pay Double NOT NULL AFTER deductions;
+AlTER TABLE employee_payroll ADD tax Double NOT NULL AFTER taxable_pay;
+AlTER TABLE employee_payroll ADD net_pay Double NOT NULL AFTER tax;
